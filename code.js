@@ -8,6 +8,7 @@ xhr.open('GET', url, true);
 xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300)
     {
+        //Send code
         console.log(xhr.responseText.slice(17, 56));
     }
     else {
