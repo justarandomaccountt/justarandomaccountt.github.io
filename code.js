@@ -8,8 +8,9 @@ xhr.open('GET', url, true);
 xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300)
     {
-        xhr.responseText = code;
-        console.log(xhr.responseText)
+        const jres = JSON.parse(xhr.responseText);
+        jres.code = code;
+        console.log(code);
     }
     else {
         console.error(xhr.statusText);
