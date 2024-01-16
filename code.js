@@ -9,7 +9,6 @@ xhr.onload = function () {
     if (xhr.status >= 200 && xhr.status < 300)
     {
         //Send code
-        
         console.log(xhr.responseText.slice(17, 57));
     }
     else {
