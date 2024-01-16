@@ -1,17 +1,23 @@
 const code = "123";
 
-const codesender = http.createServer((req, res) => {
-    if (req.method == "GET")
+const url = "https://justarandomaccountt.github.io/";
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET', url, true);
+
+xhr.onload = function () {
+    if (xhr.status >= 200 && xhr.status < 300)
     {
-        res.write(code);
-        res.end();
+        xhr.responseText = code;
+        console.log(xhr.responseText)
     }
     else {
-        res.statusCode = 404;
-        res.end();
+        console.error(xhr.statusText);
     }
-});
+};
 
-server.listen(3000, () => {
-    console.log("listening");
-});
+xhr.onerror = function () {
+    console.error("Request failure");
+}
+
+xhr.send();
